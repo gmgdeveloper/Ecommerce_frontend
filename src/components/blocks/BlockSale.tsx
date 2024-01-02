@@ -1,5 +1,5 @@
 // react
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef } from 'react';
 // third-party
 import classNames from 'classnames';
 import { FormattedMessage } from 'react-intl';
@@ -11,8 +11,8 @@ import Arrow from '~/components/shared/Arrow';
 import Decor from '~/components/shared/Decor';
 import ProductCard from '~/components/shared/ProductCard';
 import Timer from '~/components/shared/Timer';
-import { fetchsettingsImages } from '~/fake-server/database/brands';
 import { IProduct } from '~/interfaces/product';
+import { baseUrl } from '~/services/utils';
 
 interface Props {
     products: IProduct[];
@@ -50,21 +50,6 @@ function BlockSale(props: Props) {
         }
     };
 
-    const [imagesLoaded, setImagesLoaded] = useState(false);
-    const [attentionImage, setAttentionimage] = useState<any>();
-
-    useEffect(() => {
-      async function fetchData() {
-        try {
-          const imagesData : any = await fetchsettingsImages();
-          setAttentionimage(imagesData.attention_image)
-          setImagesLoaded(true);
-        } catch (error) {
-          console.error('Error fetching images:', error);
-        }
-      }
-      fetchData();
-    }, []);
     const rootClasses = classNames('block', 'block-sale', { 'block-sale--loading': loading });
 
     return (
@@ -101,12 +86,10 @@ function BlockSale(props: Props) {
                 </div>
                 <div className="block-sale__body">
                     <Decor type="bottom" className="block-sale__body-decor" />
-                    {imagesLoaded && (
-        <div
-          className="block-sale__image"
-          style={{ backgroundImage: `url(${attentionImage})` }}
-        />
-      )}
+                    <div
+                        className="block-sale__image"
+                        style={{ backgroundImage: `url(${baseUrl('/images/sale.jpg')})` }}
+                    />
                     <div className="block-sale__loader" />
                     <div className="container">
                         <div className="block-sale__carousel">

@@ -6,6 +6,7 @@ import {
     useState,
 } from 'react';
 // third-party
+import InputRange from 'react-input-range';
 // application
 import CurrencyFormat from '~/components/shared/CurrencyFormat';
 import { IRangeFilter, IRangeFilterValue } from '~/interfaces/filter';
@@ -81,7 +82,10 @@ function FilterRange(props: Props) {
     return useMemo(() => (
         <div className="filter-range">
             <div className="filter-range__slider" dir="ltr">
-                <input
+                <InputRange
+                    minValue={min}
+                    maxValue={max}
+                    value={{ min: from, max: to }}
                     step={1}
                     onChange={handleChange}
                 />

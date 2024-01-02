@@ -308,7 +308,7 @@ function AppSlickInner(props: Props) {
             className={classes}
             onMouseDown={onMousedown}
         >
-            {/* <Slick
+            <Slick
                 {...otherProps}
                 rtl={direction === 'rtl'}
                 beforeChange={beforeChangeWrapper}
@@ -316,7 +316,7 @@ function AppSlickInner(props: Props) {
                 ref={setSlickRef}
             >
                 {reversedChildren}
-            </Slick> */}
+            </Slick>
         </div>
     );
 }

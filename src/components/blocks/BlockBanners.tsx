@@ -1,41 +1,24 @@
 // react
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 // third-party
 import { FormattedMessage, useIntl } from 'react-intl';
 // application
 import AppImage from '~/components/shared/AppImage';
 import AppLink from '~/components/shared/AppLink';
-import { fetchsettingsImages } from '~/fake-server/database/brands';
 
 function BlockBanners() {
     const intl = useIntl();
-    const [imagesLoaded, setImagesLoaded] = useState(false);
-    const [banImage1, setBanImage1] = useState<any>();
-    const [banImage2, setBanImage2] = useState<any>();
 
-    useEffect(() => {
-      async function fetchData() {
-        try {
-          const imagesData : any = await fetchsettingsImages();
-          setBanImage1(imagesData.motor_image)
-          setBanImage2(imagesData.save_image)
-          setImagesLoaded(true);
-        } catch (error) {
-          console.error('Error fetching images:', error);
-        }
-      }
-      fetchData();
-    }, []);
     return (
         <div className="block block-banners">
             <div className="container">
                 <div className="block-banners__list">
                     <AppLink href="/" className="block-banners__item block-banners__item--style--one">
                         <span className="block-banners__item-image">
-                            <AppImage className="reflect-rtl" src={banImage1} />
+                            <AppImage className="reflect-rtl" src="/images/banners/banner1.jpg" />
                         </span>
                         <span className="block-banners__item-image block-banners__item-image--blur">
-                            <AppImage className="reflect-rtl" src={banImage1} />
+                            <AppImage className="reflect-rtl" src="/images/banners/banner1.jpg" />
                         </span>
                         <span className="block-banners__item-title">
                             <FormattedMessage id="TEXT_BANNER_ONE_TITLE" />
@@ -53,10 +36,10 @@ function BlockBanners() {
 
                     <AppLink href="/" className="block-banners__item block-banners__item--style--two">
                         <span className="block-banners__item-image">
-                            <AppImage className="reflect-rtl" src={banImage2} />
+                            <AppImage className="reflect-rtl" src="/images/banners/banner2.jpg" />
                         </span>
                         <span className="block-banners__item-image block-banners__item-image--blur">
-                            <AppImage className="reflect-rtl" src={banImage2} />
+                            <AppImage className="reflect-rtl" src="/images/banners/banner2.jpg" />
                         </span>
                         <span className="block-banners__item-title">
                             <FormattedMessage id="TEXT_BANNER_TWO_TITLE" />

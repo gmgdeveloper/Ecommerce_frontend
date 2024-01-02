@@ -2,26 +2,26 @@
 import React, { useEffect, useMemo } from 'react';
 // third-party
 import classNames from 'classnames';
-import { useIntl } from 'react-intl';
 import { useRouter } from 'next/router';
+import { useIntl } from 'react-intl';
 // application
 import BlockHeader from '~/components/blocks/BlockHeader';
 import BlockSpace from '~/components/blocks/BlockSpace';
 import ProductsView from '~/components/shop/ProductsView';
 import ShopSidebar from '~/components/shop/ShopSidebar';
-import url from '~/services/url';
-import { getCategoryParents } from '~/services/utils';
-import { buildQuery } from '~/store/shop/shopHelpers';
-import { CurrentVehicleScopeProvider } from '~/services/current-vehicle';
 import { ILink } from '~/interfaces/link';
-import { SidebarProvider } from '~/services/sidebar';
-import { useShop } from '~/store/shop/shopHooks';
 import {
     IShopPageGridLayout,
     IShopPageLayout,
     IShopPageOffCanvasSidebar,
     IShopPageSidebarPosition,
 } from '~/interfaces/pages';
+import { CurrentVehicleScopeProvider } from '~/services/current-vehicle';
+import { SidebarProvider } from '~/services/sidebar';
+import url from '~/services/url';
+import { getCategoryParents } from '~/services/utils';
+import { buildQuery } from '~/store/shop/shopHelpers';
+import { useShop } from '~/store/shop/shopHooks';
 
 interface Props {
     layout: IShopPageLayout;

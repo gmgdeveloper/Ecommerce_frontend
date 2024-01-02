@@ -4,8 +4,8 @@ import React, { useCallback, useMemo } from 'react';
 import classNames from 'classnames';
 import { Controller, FormProvider } from 'react-hook-form';
 import { FormattedMessage } from 'react-intl';
+import { Modal } from 'reactstrap';
 // application
-import { Modal } from 'react-bootstrap';
 import AppLink from '~/components/shared/AppLink';
 import AsyncAction from '~/components/shared/AsyncAction';
 import CurrencyFormat from '~/components/shared/CurrencyFormat';

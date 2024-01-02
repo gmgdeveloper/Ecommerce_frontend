@@ -7,29 +7,29 @@ import { ITermResults } from '~/interfaces/termsandcondtions';
 
 function Page() {
 
-    const [data,setData]=useState<ITermResults>();
- 
+    const [data, setData] = useState<ITermResults>();
+
 
     useEffect(() => {
         const fetchAllPages = async () => {
-          try {
-            const response = await fetch('https://azantest.gmgsolution.com/api/allPage');
-            const fetchedData = await response.json();
-            if (fetchedData && fetchedData.termsResults) {
-              setData({ data: fetchedData.termsResults }); // Set the state properly
-          } 
-          } catch (error) {
-            console.error('Error fetching data:', error);
-          }
+            try {
+                const response = await fetch('https://azantest.gmgsolution.com/api/allPage');
+                const fetchedData = await response.json();
+                if (fetchedData && fetchedData.termsResults) {
+                    setData({ data: fetchedData.termsResults }); // Set the state properly
+                }
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
         };
         fetchAllPages();
-      }, []);
+    }, []);
     return (
         <React.Fragment>
             <PageTitle>
                 {data && data.data.length > 0 && (
-    data.data[0].name
-)}
+                    data.data[0].name
+                )}
             </PageTitle>
 
             <BlockSpace layout="spaceship-ledge-height" />
@@ -39,17 +39,17 @@ function Page() {
                     <div className="document">
                         <div className="document__header">
                             <h1 className="document__title">
-                            
-                            {data && data.data.length > 0 && (
-    data.data[0].name
-)}
+
+                                {data && data.data.length > 0 && (
+                                    data.data[0].name
+                                )}
                             </h1>
                             <div className="document__subtitle">This Agreement was last modified on 27 May 2018.</div>
                         </div>
                         <div className="document__content card">
-                         {data && data.data.length > 0 && (
-    <div  dangerouslySetInnerHTML={{ __html: data.data[0].content }} />
-)}
+                            {data && data.data.length > 0 && (
+                                <div dangerouslySetInnerHTML={{ __html: data.data[0].content }} />
+                            )}
 
                             {/* <div className="typography">
                                 <Terms />
